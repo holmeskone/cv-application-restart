@@ -1,9 +1,12 @@
+import Accordion from "./components/Accordion";
 import InputFirstName from "./components/FirstName"
 import InputLastName from "./components/LastName";
 import InputEmail from "./components/Email";
 import InputPhone from "./components/Phone";
 import InputNationality from "./components/Nationality";
+import DynamicInputField from "./components/Languages";
 import Display from "./display"
+import DisplayDynamic from "./components/displayDynamicInputs";
 import { useState } from "react";
 import './App.css';
 
@@ -13,17 +16,24 @@ function App() {
   const [email, setEmail] = useState("example@example.com")
   const [phone, setPhone] = useState("+123456789")
   const [nationality, setNationality] = useState("EU Citizen")
+  const[inputs, setInputs] = useState([{language:"English"}]);
 
   return (
     <div className="container">
       <div id="input-section">
         <div id="personal-information">
-          <h3>Personal Information Section</h3>
+          <Accordion title="Personal Information" >
           <InputFirstName id="first-name" label = "First Name" value ={firstName} setValue={setfirstName}/>
           <InputLastName id="last-name" label = "Last Name" value ={lastName} setValue={setlastName} />
           <InputEmail id="email" label = "Email" value ={email} setValue={setEmail} />
           <InputPhone id="phone" label = "Phone" value ={phone} setValue={setPhone} />
           <InputNationality id="nationality" label = "Nationality" value ={nationality} setValue={setNationality} />
+          </Accordion>
+        </div>
+        <div>
+        <Accordion title="Languages" >
+          <DynamicInputField inputs={inputs} setInputs={setInputs} />
+        </Accordion>
         </div>
       </div>
       <div id="output-section">
@@ -32,6 +42,7 @@ function App() {
         <Display text={email} />
         <Display text={phone}/>
         <Display text={nationality}/>
+        <DisplayDynamic text={inputs}/>
       </div>
     </div>
   )
