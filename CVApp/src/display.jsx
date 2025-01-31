@@ -1,5 +1,4 @@
 function Display (prop) {
-
     return(
         <div>
             <p>{prop.text}</p>
