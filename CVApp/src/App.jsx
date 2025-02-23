@@ -16,7 +16,7 @@ function App() {
   const [email, setEmail] = useState("example@example.com")
   const [phone, setPhone] = useState("+123456789")
   const [nationality, setNationality] = useState("EU Citizen")
-  const[inputs, setInputs] = useState([{language:"English"}]);
+  const[languages, setLanguages] = useState([{language:"English"}]);
 
   return (
     <div className="container">
@@ -30,9 +30,9 @@ function App() {
           <InputNationality id="nationality" label = "Nationality" value ={nationality} setValue={setNationality} />
           </Accordion>
         </div>
-        <div>
+        <div id="language-information">
         <Accordion title="Languages" >
-          <DynamicInputField inputs={inputs} setInputs={setInputs} />
+          <DynamicInputField inputs={languages} setInputs={setLanguages} />
         </Accordion>
         </div>
       </div>
@@ -42,7 +42,7 @@ function App() {
         <Display text={email} />
         <Display text={phone}/>
         <Display text={nationality}/>
-        <DisplayDynamic text={inputs}/>
+        <DisplayDynamic text={languages}/>
       </div>
     </div>
   )
