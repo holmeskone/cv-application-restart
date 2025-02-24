@@ -34,7 +34,6 @@ return(
                 )}
             </div>
         ))}
-        <div className="body"> {JSON.stringify(prop.inputs)} </div>
     </div>
 )
 }
