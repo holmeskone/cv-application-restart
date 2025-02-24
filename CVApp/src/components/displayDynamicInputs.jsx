@@ -1,4 +1,4 @@
-function DisplayDynamic (prop) {
+function DisplayDynamicLanguage (prop) {
 
 return(
     <div id="tester">
@@ -10,4 +10,4 @@ return(
     </div>)
 }
 
-export default DisplayDynamic
+export default DisplayDynamicLanguage
