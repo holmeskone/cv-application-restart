@@ -1,9 +1,9 @@
 function DisplayDynamicLanguage (prop) {
 
 return(
-    <div id="tester">
+    <div id="languages">
         {prop.text.map((item,index) => {
-            return <div className="language" key={index}>
+            return <div className="languages" key={index}>
                 <p>{item.language}</p>
             </div>            
     })}
