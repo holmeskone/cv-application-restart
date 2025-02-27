@@ -45,7 +45,7 @@ const handleDeleteEducation = (id) => {
         <div className="education-subsection" key={education.universityId} id={`education-${education.universityId}`}>
           <InputUniversity
             id={`university-${index}`}
-            label="university"
+            label="University"
             value={education.university}
             setValue={(value) => updateEducationField(index, 'university', value)}
           />
@@ -77,7 +77,7 @@ const handleDeleteEducation = (id) => {
           {index === prop.educations.length - 1 && (
             <button 
               onClick={handleAddEducation}
-              className="add-education-button"
+              className="add-button"
             >
               Add Education
             </button>
