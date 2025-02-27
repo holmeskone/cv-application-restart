@@ -3,7 +3,7 @@ function DisplayDateExperience (prop) {
     let year = prop.date.getFullYear()
     return(
         <div>
-        <p>{month} {year}</p>
+        <p className={prop.className}>{month} {year}</p>
       </div>
     )
 }
