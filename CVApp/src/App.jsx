@@ -63,12 +63,12 @@ const [educations, setEducations] = useState([{
     <div className="container">
       <div id="input-section">
         <div id="personal-information">
-          <Accordion title="Personal Information" >
-          <InputFirstName id="first-name" label = "First Name" value ={firstName} setValue={setfirstName}/>
-          <InputLastName id="last-name" label = "Last Name" value ={lastName} setValue={setlastName} />
-          <InputEmail id="email" label = "Email" value ={email} setValue={setEmail} />
-          <InputPhone id="phone" label = "Phone" value ={phone} setValue={setPhone} />
-          <InputNationality id="nationality" label = "Nationality" value ={nationality} setValue={setNationality} />
+          <Accordion title="Personal Information" value="personal-information">
+          <InputFirstName className="personal-section" id="first-name" label = "First Name" value ={firstName} setValue={setfirstName}/>
+          <InputLastName className="personal-section" id="last-name" label = "Last Name" value ={lastName} setValue={setlastName} />
+          <InputEmail className="personal-section" id="email" label = "Email" value ={email} setValue={setEmail} />
+          <InputPhone className="personal-section" id="phone" label = "Phone" value ={phone} setValue={setPhone} />
+          <InputNationality className="personal-section" id="nationality" label = "Nationality" value ={nationality} setValue={setNationality} />
           </Accordion>
         </div>
         <div id="language-information">
@@ -77,7 +77,7 @@ const [educations, setEducations] = useState([{
         </Accordion>
         </div>
         <div id="experience-information">
-          <Accordion title="Experience">
+          <Accordion title="Experience" value="experience-information">
           <ExperiencesField experiences = {experiences} setExperiences ={setExperiences} company = {company} setCompany = {setCompany} position={position} setPosition ={setPosition} startDate={startDate} setStartDate={setStartDate} endDate ={endDate} setEndDate={setEndDate} responsabilities = {responsabilities} setResponsabilities = {setResponsabilities} id = {id} setId = {setId}>
           </ExperiencesField>
           </Accordion>
@@ -100,30 +100,43 @@ const [educations, setEducations] = useState([{
         </div>
       </div>
       <div id="output-section">
-        <Display text={firstName} />
-        <Display text={lastName}/>
-        <Display text={email} />
-        <Display text={phone}/>
-        <Display text={nationality}/>
+        <div className='personal-information'>
+          <div className='personal-name'>
+          <Display className='personal-firstName' text={firstName} />
+          <Display className='personal-lastName' text={lastName}/>
+          </div>
+          <div className='personal-info'>
+          <Display className='personal-email' text={email} />
+          <Display className='personal-phone' text={phone}/>
+          <Display className='personal-nationality' text={nationality}/>
+          </div>
+        </div>
+        {/* <h5 className='section'>Languages</h5> */}
+        <div className='languages-information'>
         <DisplayDynamicLanguage text={languages}/>
-        {experiences.map((experience)=> (
-        <>
-        <Display text={experience.company} id={`company-display-${experience.id}`}/>
-        <Display text={experience.position} id={`position-display-${experience.id}`}/>
-        <DisplayDateExperience date={experience.startDate} id={`start-display-${experience.id}`} />
-        <DisplayDateExperience date={experience.endDate} id={`end-display-${experience.id}`} />
-        <DisplayDynamicResponsability text={experience.responsabilities} id={`responsability-display-${experience.id}`}/>
-        </>
+        </div>
+        <h5 className='section'>Experience</h5>
+        {experiences.map((experience, index)=> (
+        <div className='experiences-information' key={index}>
+        <Display text={experience.company} id={`company-display-${experience.id}`} className="company"/>
+        <Display text={experience.position} id={`position-display-${experience.id}`} className="position"/>
+        <DisplayDateExperience date={experience.startDate} id={`start-display-${experience.id}`} className="start-date"/>
+        <DisplayDateExperience date={experience.endDate} id={`end-display-${experience.id}`} className="end-date"/>
+        <DisplayDynamicResponsability text={experience.responsabilities} id={`responsability-display-${experience.id}`} className="responsabilities"/>
+        </div>
         ))}
-        {educations.map((education)=> (
-        <>
+        <h5 className='section'>Education</h5>
+        {educations.map((education,index)=> (
+        <div className='education-information' key={index}>
         <Display text={education.university} id={`company-display-${education.universityId}`}/>
         <Display text={education.degree} id={`position-display-${education.universityId}`}/>
         <DisplayDateEducation date={education.universityStartDate} id={`start-display-${education.universityId}`} />
         <DisplayDateEducation date={education.universityEndDate} id={`end-display-${education.universityId}`} />
-        </>
+        </div>
         ))}
+        <h5 className='section'>Skills</h5>
         <DisplayDynamicSkills text={skills}/>
+        <h5 className='section'>Interests</h5>
         <DisplayDynamicInterests text={interests}/>
       </div>
     </div>
