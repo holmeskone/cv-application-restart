@@ -26,7 +26,7 @@ return(
                     onChange={(event) => handleChange(event, index)}
                 />
                 {prop.inputs.length > 1 && (
-                <button onClick={() => handleDeleteInput(index)}>Delete Skill</button>
+                <button className="delete" onClick={() => handleDeleteInput(index)}>Delete Skill</button>
                 )}
                 {index === prop.inputs.length - 1 &&(
                     <button onClick={() => handleAddInput(index)}>Add Skill</button>
