@@ -1,7 +1,307 @@
-
-#root{
+/* Global styles and resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
 }
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
 .container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* Input Section */
+#input-section {
+  flex: 1;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  align-items: center;
+}
+
+/* Accordion Styling */
+.accordion-item {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.accordion-title {
+  padding: 0.75rem 0;
+  cursor: pointer;
+}
+
+.accordion-title-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-title h3 {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.accordion-content {
+  padding: 1rem 0;
+}
+
+/* Form Elements */
+input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+input{
+  margin-bottom: 0.5rem;
+
+}
+
+textarea {
+  /* min-height: 2rem; */
+  resize: vertical;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+button {
+  background-color: #0071e3;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s, transform 0.2s;
+  height: 2.5rem;
+}
+
+.delete{
+  margin: 0.5rem 0.5rem 1rem 0rem;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+  color: #0071e3;
+}
+
+.add-button, .delete-button, .delete-education-button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #0071e3;
+}
+
+/* Section Specific Styles */
+#personal-information > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+#email, #phone, #nationality {
+  grid-column: span 2;
+}
+
+.dynamic-inputs {
+  margin-bottom: 1rem;
+}
+
+.input-section {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.input-section textarea, .input-section input {
+  flex: 1;
+}
+
+
+p {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* Output Section */
+#output-section {
+  flex: 1;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.personal-name {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.personal-info{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+.personal-email, .personal-phone, .personal-nationality {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+
+#skills p, #interests p, #languages p {
+  display: inline-block;
+  background-color: #f0f0f0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  #personal-information > div {
+    grid-template-columns: 1fr;
+  }
+  
+  #email, #phone, #nationality {
+    grid-column: span 1;
+  }
+}
+
+
+/* Output section */
+.personal-name div p{
+  font-size: 2rem;
+  height: 2.5rem;
+}
+
+/* .personal-info{
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  display: flex;
+  column-gap: 15px;
+} */
+
+.languages-information div{
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem 0rem;
+}
+ 
+
+.experience-subsection{
+  margin-top: 1rem;
+} 
+
+.education-subsection{
+  margin-top: 1rem;}
+
+.education-information{
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
+.section{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  color: blue;
+}
+
+.experiences-information {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr auto;
+  grid-template-areas: 
+    "company company company"
+    "position start-date end-date"
+    "responsability responsability responsability";
+}
+
+/* Target the paragraphs inside the container divs */
+.experiences-information .company {
+  color: black;
+  font-weight: 600;
+  grid-area: company;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.experiences-information .position {
+  color: black;
+  font-weight: 400;
+  grid-area: position;
+  font-size: 0.8rem;
+}
+
+.experiences-information .start-date {
+  color: black;
+  font-weight: 400;
+  grid-area: start-date;
+  justify-self: end;
+  font-size: 0.8rem;
+
+}
+
+.experiences-information .end-date {
+  color: black;
+  font-weight: 400;
+  grid-area: end-date;
+  justify-self: end;
+  font-size: 0.8rem;
+}
+
+.experiences-information .end-date {
+  color: black;
+  font-weight: 400;
+  grid-area: end-date;
+  justify-self: end;
+  font-size: 0.8rem;
+}
+
+.experiences-information .responsability {
+  color: black;
+  font-weight: 400;
+  grid-area: responsability;
+  font-size: 0.8rem;
+  word-wrap: break-word;
+}
+
+
+/* Remove the default div wrapper structure that's interfering with the grid */
+.experiences-information > div {
+  margin: 0;
+  padding: 0;
+  display: contents;
 }
