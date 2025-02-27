@@ -66,6 +66,7 @@ const handleDeleteExperience = (id) => {
         <div className="experience-subsection" key={experience.id} id={`experience-${experience.id}`}>
           <InputCompany
             id={`company-${index}`}
+            className="company"
             label="Company"
             value={experience.company}
             setValue={(value) => updateExperienceField(index, "company", value)}
@@ -73,6 +74,7 @@ const handleDeleteExperience = (id) => {
           
           <InputPosition
             id={`position-${index}`}
+            className="position"
             label="Position"
             value={experience.position}
             setValue={(value) => updateExperienceField(index, "position", value)}
@@ -84,6 +86,7 @@ const handleDeleteExperience = (id) => {
             onChange={(date) => updateExperienceField(index, "startDate", date)}
             dateFormat="MM/yyyy"
             showMonthYearPicker
+            className="start-date"
           />
           
           <p>End Date</p>
@@ -92,11 +95,13 @@ const handleDeleteExperience = (id) => {
             onChange={(date) => updateExperienceField(index, "endDate", date)}
             dateFormat="MM/yyyy"
             showMonthYearPicker
+            className="end-date"
           />
           
           <p>Responsabilities</p>
           <ResponsabilitiesField
             inputs={experience.responsabilities}
+            className="responsabilities"
             setInputs={(newResponsabilities) => 
               updateResponsabilities(index, newResponsabilities)
             }
@@ -106,7 +111,7 @@ const handleDeleteExperience = (id) => {
           {index === prop.experiences.length - 1 && (
             <button 
               onClick={handleAddExperience}
-              className="add-experience-button"
+              className="add-button"
             >
               Add Another Experience
             </button>
@@ -114,7 +119,7 @@ const handleDeleteExperience = (id) => {
             {/* Delete button after the "add another experience" button */}
             {prop.experiences.length > 1 && (
             <button onClick={(event) => handleDeleteExperience(event.target.id)} id={experience.id}
-            className="delete-experience-button">
+            className="delete-button">
               Delete Experience
             </button>
                       )}
