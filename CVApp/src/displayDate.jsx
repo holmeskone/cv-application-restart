@@ -1,4 +1,4 @@
-function DisplayDate (prop) {
+function DisplayDateExperience (prop) {
     let month = prop.date.toLocaleString('default', { month: 'long' });
     let year = prop.date.getFullYear()
     return(
@@ -8,4 +8,4 @@ function DisplayDate (prop) {
     )
 }
 
-export default DisplayDate
+export default DisplayDateExperience
