@@ -1,7 +1,7 @@
 function Display (prop) {
     return(
-        <div>
-            <p id={prop.id}>{prop.text}</p>
+        <div >
+            <p className={prop.className} id={prop.id}>{prop.text}</p>
         </div>
     )
 }
