@@ -19,7 +19,7 @@ function DynamicInputField(prop) {
 return(
     <div className="dynamic-inputs">
         {prop.inputs.map((item, index) => (
-            <div className="input-section" key={index}>
+            <div className="input-language" key={index}>
                 <input 
                     type="text"
                     name="language"
@@ -27,10 +27,10 @@ return(
                     onChange={(event) => handleChange(event, index)}
                 />
                 {prop.inputs.length > 1 && (
-                <button onClick={() => handleDeleteInput(index)}>Delete</button>
+                <button className="delete" onClick={() => handleDeleteInput(index)}>Delete</button>
                 )}
                 {index === prop.inputs.length - 1 &&(
-                    <button onClick={() => handleAddInput(index)}>Add</button>
+                    <button onClick={() => handleAddInput(index)}>Add Language</button>
                 )}
             </div>
         ))}
