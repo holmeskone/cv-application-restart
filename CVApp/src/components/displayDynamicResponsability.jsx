@@ -1,7 +1,7 @@
 function DisplayDynamicResponsability (prop) {
 
 return(
-    <div id={prop.id}>
+    <div className={prop.className} id={prop.id}>
         {prop.text.map((item,index) => {
             return <div className="responsability" key={index}>
                 <p>{item.responsability}</p>
