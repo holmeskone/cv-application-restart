@@ -15,6 +15,8 @@ import DisplayDateEducation from "./displayDateEducation";
 import DisplayDynamicResponsability from "./components/displayDynamicResponsability";
 import ExperiencesField from './components/Experiences';
 import EducationField from './components/Education';
+import DynamicSkills from './components/Skills';
+import DisplayDynamicSkills from './components/displayDynamicSkills';
 
 
 function App() {
@@ -29,7 +31,8 @@ function App() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [responsabilities, setResponsabilities] = useState([{responsability:"Solve Problems"}])
-  const [id, setId] = useState("")
+  const [id, setId] = useState("");
+  const [skills, setSkills] = useState([{skill:"Sales"}]);
   // State to store all experience sections
   const [experiences, setExperiences] = useState([{
       company: "ACME inc.",
@@ -82,6 +85,11 @@ const [educations, setEducations] = useState([{
           </EducationField>
           </Accordion>
         </div>
+        <div id="skills-information">
+        <Accordion title="Skills" >
+          <DynamicSkills inputs={skills} setInputs={setSkills} />
+        </Accordion>
+        </div>
       </div>
       <div id="output-section">
         <Display text={firstName} />
@@ -107,6 +115,7 @@ const [educations, setEducations] = useState([{
         <DisplayDateEducation date={education.universityEndDate} id={`end-display-${education.universityId}`} />
         </>
         ))}
+        <DisplayDynamicSkills text={skills}/>
       </div>
     </div>
   )
