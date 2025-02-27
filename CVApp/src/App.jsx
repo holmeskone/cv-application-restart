@@ -10,9 +10,11 @@ import InputNationality from "./components/Nationality";
 import DynamicInputField from "./components/Languages";
 import Display from "./display"
 import DisplayDynamicLanguage from "./components/displayDynamicInputs";
-import DisplayDate from "./displayDate";
+import DisplayDateExperience from "./displayDate";
+import DisplayDateEducation from "./displayDateEducation";
 import DisplayDynamicResponsability from "./components/displayDynamicResponsability";
 import ExperiencesField from './components/Experiences';
+import EducationField from './components/Education';
 
 
 function App() {
@@ -28,17 +30,29 @@ function App() {
   const [endDate, setEndDate] = useState(new Date());
   const [responsabilities, setResponsabilities] = useState([{responsability:"Solve Problems"}])
   const [id, setId] = useState("")
-    // State to store all experience sections
-    const [experiences, setExperiences] = useState([{
+  // State to store all experience sections
+  const [experiences, setExperiences] = useState([{
       company: "ACME inc.",
       position: "Software Engineer",
       startDate: new Date(),
       endDate: new Date(),
       responsabilities: [{ text: "Solve Problems" }],
       id: crypto.randomUUID()
-    }]);
+  }]);
+// State to store all education sections
+const [university, setUniversity] = useState("My University");
+const [degree, setDegree] = useState("Computer Science");
+const [universityStartDate, setUniversityStartDate] = useState(new Date());
+const [universityEndDate, setUniversityEndDate] = useState(new Date());
+const [universityId, setUniversityId] = useState("");
+const [educations, setEducations] = useState([{
+    university: "My University",
+    degree: "Computer Science",
+    universityStartDate: new Date(),
+    universityEndDate: new Date(),
+    universityId: crypto.randomUUID()
+}]);
 
-  console.log({experiences})
   return (
     <div className="container">
       <div id="input-section">
@@ -62,6 +76,12 @@ function App() {
           </ExperiencesField>
           </Accordion>
         </div>
+        <div id="education-information">
+          <Accordion title="Education">
+          <EducationField educations = {educations} setEducations ={setEducations} university={university} setUniversity={setUniversity} degree = {degree} setDegree={setDegree} universityStartDate={universityStartDate}  setUniversityStartDate={setUniversityStartDate} educationEndDate ={universityEndDate} setUniveristyEndDate={setUniversityEndDate} universityId = {universityId} setUniversityId = {setUniversityId}>
+          </EducationField>
+          </Accordion>
+        </div>
       </div>
       <div id="output-section">
         <Display text={firstName} />
@@ -74,12 +94,19 @@ function App() {
         <>
         <Display text={experience.company} id={`company-display-${experience.id}`}/>
         <Display text={experience.position} id={`position-display-${experience.id}`}/>
-        <DisplayDate date={experience.startDate} id={`start-display-${experience.id}`} />
-        <DisplayDate date={experience.endDate} id={`end-display-${experience.id}`} />
+        <DisplayDateExperience date={experience.startDate} id={`start-display-${experience.id}`} />
+        <DisplayDateExperience date={experience.endDate} id={`end-display-${experience.id}`} />
         <DisplayDynamicResponsability text={experience.responsabilities} id={`responsability-display-${experience.id}`}/>
         </>
         ))}
-
+        {educations.map((education)=> (
+        <>
+        <Display text={education.university} id={`company-display-${education.universityId}`}/>
+        <Display text={education.degree} id={`position-display-${education.universityId}`}/>
+        <DisplayDateEducation date={education.universityStartDate} id={`start-display-${education.universityId}`} />
+        <DisplayDateEducation date={education.universityEndDate} id={`end-display-${education.universityId}`} />
+        </>
+        ))}
       </div>
     </div>
   )
