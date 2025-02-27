@@ -24,9 +24,10 @@ return(
                     name="interest"
                     value={item.interest}
                     onChange={(event) => handleChange(event, index)}
+                    id="interest"
                 />
                 {prop.inputs.length > 1 && (
-                <button onClick={() => handleDeleteInput(index)}>Delete Interest</button>
+                <button className="delete" onClick={() => handleDeleteInput(index)}>Delete Interest</button>
                 )}
                 {index === prop.inputs.length - 1 &&(
                     <button onClick={() => handleAddInput(index)}>Add Interest</button>
