@@ -12,7 +12,7 @@ import Display from "./display"
 import DisplayDynamicLanguage from "./components/displayDynamicInputs";
 import DisplayDateExperience from "./displayDateExperience";
 import DisplayDynamicResponsability from "./components/displayDynamicResponsability";
-import DisplayDateEducation from "./displayDateEducation";
+import DisplayDateEducation from "./DisplayDateEducation";
 import ExperiencesField from './components/Experiences';
 import EducationField from './components/Education';
 import DynamicSkills from './components/Skills';
