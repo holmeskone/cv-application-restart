@@ -10,7 +10,7 @@ import InputNationality from "./components/Nationality";
 import DynamicInputField from "./components/Languages";
 import Display from "./display"
 import DisplayDynamicLanguage from "./components/displayDynamicInputs";
-import DisplayDateExperience from "./displayDate";
+import DisplayDateExperience from "./displayDateExperience";
 import DisplayDateEducation from "./displayDateEducation";
 import DisplayDynamicResponsability from "./components/displayDynamicResponsability";
 import ExperiencesField from './components/Experiences';
